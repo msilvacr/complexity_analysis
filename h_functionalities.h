@@ -1,6 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <conio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <math.h>
+#include <time.h>
 
-void teste();
+int *gerarVetor();
+void preencherVetor();

@@ -14,14 +14,23 @@ typedef struct Registro{
 	//##
 	char desktopID[100]; //ID da máquina a qual está sendo executado o código
 	char sortAlgorithmName[100]; //nome do algorítmo de ordenação 
+	int *vetor;
+	int size;
 	int comparisons; //total de comparações realizadas na ordenação
 	int arrayAccesses; //total de modificações na estrutura do vetor
 	int totalTime; //tempo total para ordenação medido em unidades de segundo	
-} nome, s;
+} regExecucao;
 
 //variáveis de escopo global
 int main(){
-	teste();
-	return(1);
+	int i;
+	printf("Digita um numero ae");
+	scanf("d", &i);
+	
+
+	int *v;
+	//v = gerarVetor(i);
+	
+	
 }
 

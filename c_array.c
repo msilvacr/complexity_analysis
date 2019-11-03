@@ -3,7 +3,14 @@
 #include <conio.h>
 #include <string.h>
 
-int aqui(){
-	printf("DEU CERTO\nPode comemorar krl");
-	return(1);
+int *gerarVetor(int tamanho){
+	//int* ptr = malloc(sizeof(int) * 6);
+	//return ptr;
+}
+
+void preencherVetor(int *v, int tamanhoV){
+	int i=0;
+	for(i=0; i<tamanhoV; i++){
+		v[i] = i+1;
+	}
 }
