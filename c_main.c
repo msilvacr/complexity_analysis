@@ -30,7 +30,15 @@ int main(){
 
 	int *v;
 	v = gerarVetor(i);
+
 	preencherVetor(v, i);
+	
+	embaralharVetor(v, i);
+	
+	apresentarVetor(v, i);
+	
+	selecao(v, i);
+	
 	apresentarVetor(v, i);
 	
 }

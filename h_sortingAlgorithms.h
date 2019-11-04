@@ -6,8 +6,8 @@
 #include <time.h>
 
 
-void insercao (int vet, int tam);
+void insercao (int* vet, int tam);
 
-void selecao (int vet, int tam);
+void selecao (int* vet, int tam);
 
 

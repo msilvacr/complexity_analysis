@@ -7,5 +7,6 @@
 
 int *gerarVetor(int tamanho);//função responsável por alocar espaço em memória e retornar um vetor correspondente
 void preencherVetor(int *v, int tamanho);//função responsável por preencher o vetor de forma crescente
-void apresentarVetor(int *v, int tamanho);//função responsável por percorrer o vetor e apresentar seus valores
 void embaralharVetor(int *v, int tamanho);//função responsável por emnbaralhar os valores presentes no vetor
+void apresentarVetor(int *v, int tamanho);//função responsável por percorrer o vetor e apresentar seus valores
+

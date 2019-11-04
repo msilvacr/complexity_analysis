@@ -1,7 +1,10 @@
 #include "h_sortingAlgorithms.h"
 
 
-void insercao (int vet[], int tam){
+void insercao (int* vet, int tam){
+	printf("Iniciando ordenação pelo método de insercao\n\n\n\n");
+	
+	
 	int i, j, x;
 	for (i=2; i<=tam; i++){
 	    x = vet[i];
@@ -15,11 +18,11 @@ void insercao (int vet[], int tam){
 	}
 }
 
-void selecao (int vet[], int tam){
+void selecao (int *vet, int tam){
     int i, j, min, x;
-    for (i=1; i<=tam-1; i++){
+    for (i=0; i<tam-1; i++){
         min = i;
-    for (j=i+1; j<=tam; j++){
+    for (j=i+1; j<tam; j++){
             if (vet[j] < vet[min])
             min = j;
     }
