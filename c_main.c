@@ -24,13 +24,14 @@ typedef struct Registro{
 //variáveis de escopo global
 int main(){
 	int i;
-	printf("Digita um numero ae");
-	scanf("d", &i);
+	printf("Digita um numero ae\n");
+	scanf("%d", &i);
 	
 
 	int *v;
-	//v = gerarVetor(i);
-	
+	v = gerarVetor(i);
+	preencherVetor(v, i);
+	apresentarVetor(v, i);
 	
 }
 
