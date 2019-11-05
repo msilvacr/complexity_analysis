@@ -24,12 +24,12 @@ HostApplication=
 UseCustomMakefile=0
 CustomMakefile=
 CommandLine=
-Folders=
+Folders="Algoritmos de ordenação",Funcionalidades
 IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000001000000
-UnitCount=6
+UnitCount=13
 
 [VersionInfo]
 Major=1
@@ -51,9 +51,9 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=c_array.c
+FileName=c_vetor.c
 CompileCpp=1
-Folder=
+Folder=Funcionalidades
 Compile=1
 Link=1
 Priority=1000
@@ -61,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=c_main.c
+FileName=main.c
 CompileCpp=1
 Folder=
 Compile=1
@@ -73,7 +73,7 @@ BuildCmd=
 [Unit3]
 FileName=c_savefile.c
 CompileCpp=1
-Folder=
+Folder=Funcionalidades
 Compile=1
 Link=1
 Priority=1000
@@ -83,7 +83,7 @@ BuildCmd=
 [Unit4]
 FileName=h_functionalities.h
 CompileCpp=1
-Folder=
+Folder=Funcionalidades
 Compile=1
 Link=1
 Priority=1000
@@ -93,7 +93,7 @@ BuildCmd=
 [Unit5]
 FileName=h_sortingAlgorithms.h
 CompileCpp=1
-Folder=
+Folder=Algoritmos de ordenação
 Compile=1
 Link=1
 Priority=1000
@@ -101,9 +101,79 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit6]
-FileName=c_sortingAlgorithms.c
+FileName=c_selectionsort.c
 CompileCpp=1
-Folder=
+Folder=Algoritmos de ordenação
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit7]
+FileName=c_mergesort.c
+CompileCpp=1
+Folder=Algoritmos de ordenação
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit8]
+FileName=c_shakersort.c
+CompileCpp=1
+Folder=Algoritmos de ordenação
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit9]
+FileName=c_quicksort.c
+CompileCpp=1
+Folder=Algoritmos de ordenação
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit10]
+FileName=c_insertionsort.c
+CompileCpp=1
+Folder=Algoritmos de ordenação
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit11]
+FileName=c_bubblesort.c
+CompileCpp=1
+Folder=Algoritmos de ordenação
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit12]
+FileName=c_heapsort.c
+CompileCpp=1
+Folder=Algoritmos de ordenação
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit13]
+FileName=c_menu.c
+CompileCpp=1
+Folder=Funcionalidades
 Compile=1
 Link=1
 Priority=1000

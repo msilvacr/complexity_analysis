@@ -13,13 +13,13 @@
 typedef struct Registro{
 	//##
 	char desktopID[100]; //ID da máquina a qual está sendo executado o código
-	char sortAlgorithmName[100]; //nome do algorítmo de ordenação 
+	char sortAlgorithmName[100]; //nome do algorítmo de ordenação
 	int *vetor;
 	int size;
 	int comparisons; //total de comparações realizadas na ordenação
 	int arrayAccesses; //total de modificações na estrutura do vetor
-	int totalTime; //tempo total para ordenação medido em unidades de segundo	
-} regExecucao;
+	int totalTime; //tempo total para ordenação medido em unidades de segundo
+}execucao;
 
 //variáveis de escopo global
 int main(){
@@ -37,9 +37,14 @@ int main(){
 	
 	apresentarVetor(v, i);
 	
-	selecao(v, i);
+	heapsort(v, i);
+	
+	getch();
+	
+	limparTela();
 	
 	apresentarVetor(v, i);
-	
+
+	getch();
 }
 

@@ -1,7 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <conio.h>
-#include <string.h>
+#include "h_functionalities.h"
 
 //função responsável por alocar espaço em memória e retornar um vetor correspondente
 int *gerarVetor(int tamanho){
@@ -35,6 +32,14 @@ void apresentarVetor(int *v, int tamanho){
 	int i;
 	for(i=0; i<tamanho; i++){
 		printf("indice %d -> %d\n", i, v[i]);
+	}
+}
+
+//função responsável por inserir valores do vetorOriginal no vetorCópia
+void copiarValoresVetor(int *vOriginal, int *vCopia, int tamanho){
+	int i;
+	for(i = 0; i<tamanho; i++){
+		vCopia[i] = vOriginal[i];
 	}
 }
 

@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = c_array.o c_main.o c_savefile.o c_sortingAlgorithms.o
-LINKOBJ  = c_array.o c_main.o c_savefile.o c_sortingAlgorithms.o
+OBJ      = c_vetor.o main.o c_savefile.o c_selectionsort.o c_mergesort.o c_shakersort.o c_quicksort.o c_insertionsort.o c_bubblesort.o c_heapsort.o c_menu.o
+LINKOBJ  = c_vetor.o main.o c_savefile.o c_selectionsort.o c_mergesort.o c_shakersort.o c_quicksort.o c_insertionsort.o c_bubblesort.o c_heapsort.o c_menu.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -24,14 +24,35 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-c_array.o: c_array.c
-	$(CPP) -c c_array.c -o c_array.o $(CXXFLAGS)
+c_vetor.o: c_vetor.c
+	$(CPP) -c c_vetor.c -o c_vetor.o $(CXXFLAGS)
 
-c_main.o: c_main.c
-	$(CPP) -c c_main.c -o c_main.o $(CXXFLAGS)
+main.o: main.c
+	$(CPP) -c main.c -o main.o $(CXXFLAGS)
 
 c_savefile.o: c_savefile.c
 	$(CPP) -c c_savefile.c -o c_savefile.o $(CXXFLAGS)
 
-c_sortingAlgorithms.o: c_sortingAlgorithms.c
-	$(CPP) -c c_sortingAlgorithms.c -o c_sortingAlgorithms.o $(CXXFLAGS)
+c_selectionsort.o: c_selectionsort.c
+	$(CPP) -c c_selectionsort.c -o c_selectionsort.o $(CXXFLAGS)
+
+c_mergesort.o: c_mergesort.c
+	$(CPP) -c c_mergesort.c -o c_mergesort.o $(CXXFLAGS)
+
+c_shakersort.o: c_shakersort.c
+	$(CPP) -c c_shakersort.c -o c_shakersort.o $(CXXFLAGS)
+
+c_quicksort.o: c_quicksort.c
+	$(CPP) -c c_quicksort.c -o c_quicksort.o $(CXXFLAGS)
+
+c_insertionsort.o: c_insertionsort.c
+	$(CPP) -c c_insertionsort.c -o c_insertionsort.o $(CXXFLAGS)
+
+c_bubblesort.o: c_bubblesort.c
+	$(CPP) -c c_bubblesort.c -o c_bubblesort.o $(CXXFLAGS)
+
+c_heapsort.o: c_heapsort.c
+	$(CPP) -c c_heapsort.c -o c_heapsort.o $(CXXFLAGS)
+
+c_menu.o: c_menu.c
+	$(CPP) -c c_menu.c -o c_menu.o $(CXXFLAGS)
