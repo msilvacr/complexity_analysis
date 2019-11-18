@@ -22,7 +22,7 @@ clean: clean-custom
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
 
 c_vetor.o: c_vetor.c
 	$(CPP) -c c_vetor.c -o c_vetor.o $(CXXFLAGS)

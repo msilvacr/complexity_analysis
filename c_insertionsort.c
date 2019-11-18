@@ -1,4 +1,5 @@
 #include "h_sortingAlgorithms.h"
+//finalizado
 
 void ins_direta(int *v, int tam){
    int aux, i, j;

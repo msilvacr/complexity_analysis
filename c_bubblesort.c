@@ -1,18 +1,24 @@
 #include "h_sortingAlgorithms.h"
+#include "h_functionalities.h"
 
-/////Bubble Sort
-void bolha(int *v, int tam) {
-  int aux, troca, i, j;
-  j=tam-1;
-  do {
+//finalizado
+
+void bolha(unsigned long int *v, unsigned long int tam, struct Registro *registro) {
+
+  	int aux, troca, i, j;
+  	j=tam-1;
+
+    do{
 	 	troca=0;
-		for (i=0; i<j; i++)
-		   if (v[i]>v[i+1])  {
-		      aux=v[i];
-		      v[i]=v[i+1];
-		      v[i+1]=aux;
-		      troca=1;
-		   }
+		for (i=0; i<j; i++){ registro->complexity++; //Contador padrão dentro do for que está dentro do While
+		   if (v[i]>v[i+1]){ registro->comparisons++; //Comparação
+	            aux=v[i]; registro->arrayAccesses++; //Acesso Array
+			    v[i]=v[i+1]; registro->arrayAccesses++; //Acesso Array
+			    v[i+1]=aux; registro->arrayAccesses++; //Acesso Array
+			    troca=1;
+			}
+		}
 	 	j--;
-      }while (troca);
+	}while(troca);
 }
+

@@ -5,10 +5,11 @@
 #include <math.h>
 #include <time.h>
 
-void ins_direta(int *v, int tam);
-void bolha(int *v, int tam);
-void selecao(int *v, int tam);
-void shakersort(int* a, int n);
-void quicksort(int *a, int left, int right);
-void mergesort(int *v, int n);
-void heapsort(int *v, int n);
+void bolha(unsigned long int *v, unsigned long int tam, struct Registro *registro);
+void selecao(unsigned long int *v, unsigned long int tam, struct Registro *registro);
+void ins_direta(unsigned long int *v, unsigned long int tam, struct Registro *registro);
+void heapsort(unsigned long int *v, unsigned long int tam, struct Registro *registro);
+void mergesort(unsigned long int *v, unsigned long int tam, struct Registro *registro);
+void quicksort(unsigned long int *a, unsigned long int left, unsigned long int right);
+void shakersort(unsigned long int* a, unsigned long int n);
+

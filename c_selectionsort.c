@@ -1,6 +1,9 @@
 #include "h_sortingAlgorithms.h"
+#include "h_functionalities.h"
 
-void selecao(int *v, int tam){
+//FINALIZADO
+
+void selecao(int *v, int tam, struct Registro registro){
 	int menor,posmenor, i, j;
 	  for (i=0; i<tam; i++)
 	  {
