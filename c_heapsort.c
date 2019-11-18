@@ -1,11 +1,6 @@
 #include "h_sortingAlgorithms.h"
 #include "h_functionalities.h"
 
-/*
-void heapsort(int v*, int n){
-	//
-}
-*/
 
 void peneira (unsigned long int *v, unsigned long int m, unsigned long int p) {
 	int x = v[p];
@@ -33,19 +28,19 @@ void execHeapsort (unsigned long int *v, unsigned long int n) {
 }
 
 //FUNÇÃO AUXILIAR PARA MODIFICAR O VETOR E ADEQUALO AO METODO HEAPSORT V[1....N]
-void heapsort(unsigned long int *v, unsigned long int  n){
+void heapsort(unsigned long int *v, unsigned long int  tam, struct Registro *registro){
 	
-	unsigned long int *vNovo = gerarVetor(n+1);
+	unsigned long int *vNovo = gerarVetor(tam+1);
 	long long i;
 	//transferindo valores do vetor original para o vetor auxiliar
-	for(i = 0; i < n; i++){
+	for(i = 0; i < tam; i++){
 		vNovo[i+1] = v[i];
 	}
 	
-	execHeapsort(vNovo, n);
+	execHeapsort(vNovo, tam);
 	
 	//transferindo valores do vetor auxiliar para o vetor original
-	for(i = 0; i < n; i++){
+	for(i = 0; i < tam; i++){
 		v[i] = vNovo[i+1];
 	}
 	

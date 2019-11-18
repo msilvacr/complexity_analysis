@@ -214,35 +214,40 @@ void imprimirCabecalho(int X, int Y, int size){
 	printf(" Ú");
 	printf(" %s ", "Algoritmo");
 	
- 	for(i = 0; i < aux-9; i++){
+ 	//for(i = 0; i < aux-9; i++){
+ 	for(i = 0; i < aux-14; i++){ //tirei 5 espaços
 		printf("Ä");
 	}
 	printf("¿");
 	
 	
 	printf(" %s ", "Tamanho Vetor");
- 	for(i = 0; i < aux2-13; i++){
+ 	//for(i = 0; i < aux2-13; i++){
+ 	for(i = 0; i < aux2-18; i++){ //tirei 5 espaços
 		printf("Ä");
 	}
 	printf("¿");
 	
 	
 	printf(" %s ", "Complexidade");
- 	for(i = 0; i < aux2-12; i++){
+ 	//for(i = 0; i < aux2-12; i++){
+ 	for(i = 0; i < aux2-10; i++){ //adicionei 2 espaços
 		printf("Ä");
 	}
 	printf("¿");
 	
 	
 	printf(" %s ", "Comparacoes");
- 	for(i = 0; i < aux2-11; i++){
+ 	//for(i = 0; i < aux2-11; i++){
+ 	for(i = 0; i < aux2-7; i++){ //adicionei 4 espaços
 		printf("Ä");
 	}
 	printf("¿");
 	
 	
 	printf(" %s ", "Acessos ao Array");
- 	for(i = 0; i < aux2-13; i++){
+ 	//for(i = 0; i < aux2-13; i++){
+ 	for(i = 0; i < aux2-9; i++){ //adicionei 4 espaços
 		printf("Ä");
 	}
 	printf("¿");
@@ -267,37 +272,46 @@ void imprimirResultado(struct Registro *registro, int X, int Y, int size){
 
 	printf(" Ú");
 	printf(" %s ", registro->Name);
- 	for(i = 0; i <= aux-auxC; i++){
+ 	//for(i = 0; i <= aux-auxC; i++){
+ 	for(i = 0; i <= aux-auxC-5; i++){ //TIREI 5 ESPAÇOS
 		printf(" ");
 	}
 	printf("¿");
 	
 	
 	auxC = log10(registro->size) + 1;
-	printf(" %d ", registro->size);
- 	for(i = 0; i < aux-auxC; i++){
+	if(auxC<0){ auxC = 1; }
+	printf(" %llu ", registro->size);
+ 	//for(i = 0; i < aux-auxC; i++){
+ 	for(i = 0; i < aux-auxC-5; i++){ //tirei 05 ESPAÇOS
 		printf(" ");
 	}
 	printf("¿");
 	
 	
 	auxC = log10(registro->complexity) + 1;
-	printf(" %d ", registro->complexity);
- 	for(i = 0; i < aux-auxC; i++){
+	if(auxC<0){ auxC = 1; }
+	printf(" %llu ", registro->complexity);
+ 	//for(i = 0; i < aux-auxC; i++){
+ 	for(i = 0; i < aux-auxC+2; i++){ //adicionei 02 ESPAÇOS
 		printf(" ");
 	}
 	printf("¿");
 	
 	auxC = log10(registro->comparisons) + 1;
-	printf(" %d ", registro->comparisons);
- 	for(i = 0; i < aux-auxC; i++){
+	if(auxC<0){ auxC = 1; }
+	printf(" %llu ", registro->comparisons);
+ 	//for(i = 0; i < aux-auxC; i++){
+ 	for(i = 0; i < aux-auxC+4; i++){ //ADICIONEI 04 ESPAÇOS
 		printf(" ");
 	}
 	printf("¿");
 
 	auxC = log10(registro->arrayAccesses) + 1;
-	printf(" %d ", registro->arrayAccesses);
- 	for(i = 0; i < aux-auxC+3; i++){
+	if(auxC<0){ auxC = 1; }
+	printf(" %llu ", registro->arrayAccesses);
+ 	//for(i = 0; i < aux-auxC+3; i++){
+ 	for(i = 0; i < aux-auxC+3+4; i++){ //adicionei 04 espaços
 		printf(" ");
 	}
 	printf("¿");

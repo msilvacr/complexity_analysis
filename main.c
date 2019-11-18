@@ -36,35 +36,42 @@ void executarTodos(){
 	
 	for(i = 1; i < 10; i++){
 		unsigned long long int tamanho = pow(10, i);
-
 		unsigned long int *v = gerarVetor(tamanho); //vetor BASE após preenchimento e embaralhação
 		unsigned long int *vCopia = gerarVetor(tamanho); //cópia do vetor
 		preencherVetor(v, tamanho); //preenchendo vetor de base
 		embaralharVetor(v, tamanho); //embaralhando valores
 		
 		//INICIANDO MÉTODOS DE ORDENAÇÃO >
+		/*
 		copiarValoresVetor(v, vCopia, tamanho); //OPC 1 BUBBLE
 		registros[10+i].Name = "Bubble";
-		registros[10+i].size = tamanho;
+		registros[10+i].size = tamanho;//definindo tamanho do vetor no registro
 		bolha(v, tamanho, &registros[10+i]); //chamando método de ordenação
 		imprimirResultado(&registros[10+i], X, Y, size); Y++;
-		
-		/*
+
+
 		copiarValoresVetor(v, vCopia, tamanho); //OPC 2 SELECTION
 		registros[20+i].Name = "Selection";
 		registros[20+i].size = tamanho;
-		imprimirResultado(&registros[20+i], X, Y, size);
-		
+		selecao(v, tamanho, &registros[20+i]);
+		imprimirResultado(&registros[20+i], X, Y, size); Y++;
+
+
 		copiarValoresVetor(v, vCopia, tamanho); //OPC 3 INSERTION
-		registros[30+i].Name = "Bubble";
+		registros[30+i].Name = "Insertion";
 		registros[30+i].size = tamanho;
-		imprimirResultado(&registros[30+i], X, Y, size);
+		ins_direta(v, tamanho, &registros[30+i]);
+		imprimirResultado(&registros[30+i], X, Y, size); Y++;
+		*/
 
 		copiarValoresVetor(v, vCopia, tamanho); //OPC 4 HEAP
-		registros[40+i].Name = "Bubble";
+		registros[40+i].Name = "Heap";
 		registros[40+i].size = tamanho;
+        heapsort(v, tamanho, &registros[30+i]);
 		imprimirResultado(&registros[40+i], X, Y, size);
 		
+		
+		/*
 		copiarValoresVetor(v, vCopia,tamanho); //OPC 5 MERGE
 		registros[50+i].Name = "Bubble";
 		registros[50+i].size = tamanho;
