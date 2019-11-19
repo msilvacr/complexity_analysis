@@ -31,13 +31,14 @@ void executarTodos(){
 	int X=2, Y = 2;
 	int size = 116;
 	
-	int opc = 1;
+	int opc = 0;
 	
 	imprimirTituloResultado("Metricas de complexidade", X, Y, size); Y+=2; //pulando duas linhas
 	imprimirCabecalho(X, Y, size); Y+=2;
 	
-	for(i = 1; i < 20; i++){
-		unsigned long long int tamanho = pow(10, i);
+	for(i = 1; i < 10; i++){
+		//unsigned long long int tamanho = pow(10, i);
+		unsigned long long int tamanho = 10*i;
 		unsigned long int *v = gerarVetor(tamanho); //vetor BASE após preenchimento e embaralhação
 		unsigned long int *vCopia = gerarVetor(tamanho); //cópia do vetor
 		preencherVetor(v, tamanho); //preenchendo vetor de base
@@ -86,7 +87,7 @@ void executarTodos(){
 			imprimirResultado(&registros[50+i], X, Y, size); Y++;
 		}
 
-		if(opc == 6 || opc == 0){
+		if(opc == 666 || opc == 6660){
 			copiarValoresVetor(v, vCopia, tamanho); //OPC 6 QUICK
 			registros[60+i].Name = "Quick";
 			registros[60+i].size = tamanho;
@@ -105,6 +106,8 @@ void executarTodos(){
 		free(v);
 		free(vCopia);
 	}
+	
+	salvarRegistros(&registros[0]);
 }
 
 void executarAlgoritmo(int algoritmo){
@@ -115,6 +118,8 @@ void executarAlgoritmo(int algoritmo){
 int main(){
 	
 	executarTodos();
+	getch();
+	getch();
 	
 	int escolha;
 	telaInicial();

@@ -8,14 +8,16 @@
 #include<windows.h>
 
 struct Registro{
-	//##
-	char *Name; //nome do algorítmo de ordenação
-	unsigned long int size = 0; //tamanho do vetor submetido a ordenação
+	char *Name = NULL; //nome do algorítmo de ordenação
+	unsigned long int size = NULL; //tamanho do vetor submetido a ordenação
 	unsigned long long int comparisons = 0; //total de comparações realizadas na ordenação
 	unsigned long long int arrayAccesses = 0; //total de modificações na estrutura do vetor
 	unsigned long long int complexity = 0; //contador padrão (o que o professor quer ver
 };
 
+
+//save File
+void salvarRegistros(struct Registro *registros);
 
 //Vetor
 unsigned long int*gerarVetor(unsigned long int tamanho);//função responsável por alocar espaço em memória e retornar um vetor correspondente
