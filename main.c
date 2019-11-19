@@ -81,7 +81,7 @@ void executarTodos(){
 		copiarValoresVetor(v, vCopia, tamanho); //OPC 6 QUICK
 		registros[60+i].Name = "Shaker";
 		registros[60+i].size = tamanho;
-		shakesort(v, tamanho, registro[60+i]);
+		shakesort(v, tamanho, &registros[60+i]);
 		imprimirResultado(&registros[60+i], X, Y, size); Y++;
 		
 		/*
