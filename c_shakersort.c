@@ -38,6 +38,7 @@ void shakesort(unsigned long int *v, unsigned long int tam, struct Registro *reg
 		r=k-1;
 
 		registro->comparisons++; //COMPARAÇÃO
+		
 	} while (l<=r);
 }
 

@@ -1,8 +1,8 @@
 #include "h_sortingAlgorithms.h"
 #include "h_functionalities.h"
 
-void intercala(unsigned long int e, unsigned long int meio, unsigned long int d, unsigned long int *v, struct Registro *registro){
 	
+void intercala(unsigned long int *v, unsigned long int e, unsigned long int meio, unsigned long int d, struct Registro *registro){
 	bool auxWhile;
 	
 	int i, j, k, *w;
@@ -58,16 +58,20 @@ void intercala(unsigned long int e, unsigned long int meio, unsigned long int d,
 }
 
 //void mergesort(int e,int d, int v[])
-void mergesort(unsigned long int e, unsigned long int d, unsigned long int *v, struct Registro *registro){
-	int meio;
+void mergesort(unsigned long int *v, unsigned long int e, unsigned long int d, struct Registro *registro){
+	unsigned long int meio;
 	
 	registro->comparisons++; //COMPARAÇÃO
-	
 	if (e<d-1){ 
-		meio= (e+d)/2;
-		mergesort(e, meio, v, registro);
-		mergesort(meio,d,v, registro);
-		intercala(e, meio, d,v, registro);
+	
+		meio = (e+d)/2;
+
+		mergesort(v, e, meio, registro);
+
+		mergesort(v, meio, d,registro);
+
+		intercala(v, e, meio, d, registro);
+
 	}
 }
 

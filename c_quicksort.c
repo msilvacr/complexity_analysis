@@ -1,35 +1,64 @@
 #include "h_sortingAlgorithms.h"
+#include "h_functionalities.h"
 
 /////quicksort
-void quicksort(int *a, int left, int right) {
-    int i, j, x, y;
 
-    i = left;
-    j = right;
-    x = a[(left + right) / 2];
+int particao (unsigned long *v, unsigned long int e, unsigned long int d, struct Registro *registro){
 
-    while(i <= j) {
-        while(a[i] < x && i < right) {
-            i++;
-        }
-        while(a[j] > x && j > left) {
-            j--;
-        }
-        if(i <= j) {
-            y = a[i];
-            a[i] = a[j];
-            a[j] = y;
-            i++;
-            j--;
-        }
-    }
+	unsigned long int x, i, j, t;
+	
+	x = v[d];
+	i = e -1;
+	j = d;
 
-    if(j > left) {
-        quicksort(a, left, j);
-    }
-    if(i < right) {
-        quicksort(a, i, right);
-    }
+	do {registro->complexity++; //COMPLEXIDADE
+		
+		do{registro->complexity++; //COMPLEXIDADE
+
+			i = i+1; /* esquerda*/
+			
+			registro->comparisons++; //COMPARA플O
+		} while ((v[i] < x) &&  (i < d));
+
+		do{registro->complexity++; //COMPLEXIDADE
+
+			j = j-1; /* direita*/
+			
+			registro->comparisons++; //COMPARA플O
+		} while ((v[j] > x) && (j > 0));
+
+		t = v[i];
+		v[i] = v[j]; registro->arrayAccesses; //ACESSO ARRAY
+		v[j]=t; registro->arrayAccesses; //ACESSO ARRAY
+		
+		registro->comparisons++; //COMPARA플O
+	} while (j > i);
+
+	// colocando o pivo a[d] em seu
+	// lugar
+
+	v[j] = v[i]; registro->arrayAccesses; //ACESSO ARRAY
+	v[i] = v[d]; registro->arrayAccesses; //ACESSO ARRAY
+	v[d] = t;    registro->arrayAccesses; //ACESSO ARRAY
+	
+	return (i);
+}
+
+
+void quicksort(unsigned long int *v, unsigned long int e, unsigned long int d, struct Registro *registro){
+	
+	unsigned long int i;
+	
+	registro->comparisons++; //COMPARA플O
+	
+    if (d > e){
+    	
+		i = particao (v, e, d, registro);
+		
+      	quicksort(v, e, i-1, registro);
+
+		quicksort(v, i+1, d, registro);
+	}
 }
 
 
