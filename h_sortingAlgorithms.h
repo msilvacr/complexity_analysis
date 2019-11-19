@@ -10,6 +10,5 @@ void selecao    (unsigned long int *v, unsigned long int tam, struct Registro *r
 void ins_direta (unsigned long int *v, unsigned long int tam, struct Registro *registro);
 void heapsort   (unsigned long int *v, unsigned long int tam, struct Registro *registro);
 void mergesort  (unsigned long int *v, unsigned long int e, unsigned long int d, struct Registro *registro);
-void quicksort  (unsigned long int *v, unsigned long int left, unsigned long int right, struct Registro *registro);
 void shakesort  (unsigned long int *v, unsigned long int tam, struct Registro *registro);
-
+void quicksort  (unsigned long int *v, unsigned long int left, unsigned long int right, struct Registro *registro);

@@ -31,7 +31,7 @@ void executarTodos(){
 	int X=2, Y = 2;
 	int size = 116;
 	
-	int opc = 0;
+	int opc = 6;
 	
 	imprimirTituloResultado("Metricas de complexidade", X, Y, size); Y+=2; //pulando duas linhas
 	imprimirCabecalho(X, Y, size); Y+=2;
@@ -87,11 +87,11 @@ void executarTodos(){
 			imprimirResultado(&registros[50+i], X, Y, size); Y++;
 		}
 
-		if(opc == 666 || opc == 6660){
+		if(opc == 6 || opc == 0){
 			copiarValoresVetor(v, vCopia, tamanho); //OPC 6 QUICK
 			registros[60+i].Name = "Quick";
 			registros[60+i].size = tamanho;
-			quicksort(vCopia, 0, tamanho-1, &registros[60+i]);
+			quicksort(vCopia, 0, tamanho, &registros[60+i]);
 			imprimirResultado(&registros[60+i], X, Y, size); Y++;
 		}
 

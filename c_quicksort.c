@@ -46,21 +46,20 @@ int particao (unsigned long *v, unsigned long int e, unsigned long int d, struct
 
 
 void quicksort(unsigned long int *v, unsigned long int e, unsigned long int d, struct Registro *registro){
-	
+
 	unsigned long int i;
-	
+
 	registro->comparisons++; //COMPARAÇÃO
-	
+
     if (d > e){
-    	
+
 		i = particao (v, e, d, registro);
-		
+
       	quicksort(v, e, i-1, registro);
 
 		quicksort(v, i+1, d, registro);
 	}
 }
-
 
 
 
