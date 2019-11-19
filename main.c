@@ -31,10 +31,12 @@ void executarTodos(){
 	int X=2, Y = 2;
 	int size = 116;
 	
+	int opc = 1;
+	
 	imprimirTituloResultado("Metricas de complexidade", X, Y, size); Y+=2; //pulando duas linhas
 	imprimirCabecalho(X, Y, size); Y+=2;
 	
-	for(i = 1; i < 10; i++){
+	for(i = 1; i < 20; i++){
 		unsigned long long int tamanho = pow(10, i);
 		unsigned long int *v = gerarVetor(tamanho); //vetor BASE após preenchimento e embaralhação
 		unsigned long int *vCopia = gerarVetor(tamanho); //cópia do vetor
@@ -42,54 +44,63 @@ void executarTodos(){
 		embaralharVetor(v, tamanho); //embaralhando valores
 		
 		//INICIANDO MÉTODOS DE ORDENAÇÃO >
-		copiarValoresVetor(v, vCopia, tamanho); //OPC 1 BUBBLE
-		registros[10+i].Name = "Bubble";
-		registros[10+i].size = tamanho;//definindo tamanho do vetor no registro
-		bolha(vCopia, tamanho, &registros[10+i]); //chamando método de ordenação
-		imprimirResultado(&registros[10+i], X, Y, size); Y++;
 
 
-		copiarValoresVetor(v, vCopia, tamanho); //OPC 2 SELECTION
-		registros[20+i].Name = "Selection";
-		registros[20+i].size = tamanho;
-		selecao(vCopia, tamanho, &registros[20+i]);
-		imprimirResultado(&registros[20+i], X, Y, size); Y++;
+		if(opc == 1 || opc == 0){
+			copiarValoresVetor(v, vCopia, tamanho); //OPC 1 BUBBLE
+			registros[10+i].Name = "Bubble";
+			registros[10+i].size = tamanho;//definindo tamanho do vetor no registro
+			bolha(vCopia, tamanho, &registros[10+i]); //chamando método de ordenação
+			imprimirResultado(&registros[10+i], X, Y, size); Y++;
+		}
 
+		if(opc == 2 || opc == 0){
+			copiarValoresVetor(v, vCopia, tamanho); //OPC 2 SELECTION
+			registros[20+i].Name = "Selection";
+			registros[20+i].size = tamanho;
+			selecao(vCopia, tamanho, &registros[20+i]);
+			imprimirResultado(&registros[20+i], X, Y, size); Y++;
+		}
 
-		copiarValoresVetor(v, vCopia, tamanho); //OPC 3 INSERTION
-		registros[30+i].Name = "Insertion";
-		registros[30+i].size = tamanho;
-		ins_direta(vCopia, tamanho, &registros[30+i]);
-		imprimirResultado(&registros[30+i], X, Y, size); Y++;
+		if(opc == 3 || opc == 0){
+			copiarValoresVetor(v, vCopia, tamanho); //OPC 3 INSERTION
+			registros[30+i].Name = "Insertion";
+			registros[30+i].size = tamanho;
+			ins_direta(vCopia, tamanho, &registros[30+i]);
+			imprimirResultado(&registros[30+i], X, Y, size); Y++;
+		}
 
+		if(opc == 4 || opc == 0){
+			copiarValoresVetor(v, vCopia, tamanho); //OPC 4 HEAP
+			registros[40+i].Name = "Heap";
+			registros[40+i].size = tamanho;
+	        heapsort(vCopia, tamanho, &registros[40+i]);
+			imprimirResultado(&registros[40+i], X, Y, size); Y++;
+		}
 
-		copiarValoresVetor(v, vCopia, tamanho); //OPC 4 HEAP
-		registros[40+i].Name = "Heap";
-		registros[40+i].size = tamanho;
-        heapsort(vCopia, tamanho, &registros[40+i]);
-		imprimirResultado(&registros[40+i], X, Y, size); Y++;
+		if(opc == 5 || opc == 0){
+			copiarValoresVetor(v, vCopia,tamanho); //OPC 5 MERGE
+			registros[50+i].Name = "Merge";
+			registros[50+i].size = tamanho;
+			mergesort(vCopia, 0, tamanho-1, &registros[50+i]);
+			imprimirResultado(&registros[50+i], X, Y, size); Y++;
+		}
 
+		if(opc == 6 || opc == 0){
+			copiarValoresVetor(v, vCopia, tamanho); //OPC 6 QUICK
+			registros[60+i].Name = "Quick";
+			registros[60+i].size = tamanho;
+			quicksort(vCopia, 0, tamanho-1, &registros[60+i]);
+			imprimirResultado(&registros[60+i], X, Y, size); Y++;
+		}
 
-		copiarValoresVetor(v, vCopia,tamanho); //OPC 5 MERGE
-		registros[50+i].Name = "Merge";
-		registros[50+i].size = tamanho;
-		mergesort(vCopia, 0, tamanho-1, &registros[50+i]);
-		imprimirResultado(&registros[50+i], X, Y, size); Y++;
-		
-
-		/*
-		copiarValoresVetor(v, vCopia, tamanho); //OPC 6 QUICK
-		registros[60+i].Name = "Quick";
-		registros[60+i].size = tamanho;
-		quicksort(vCopia, 0, tamanho-1, &registros[60+i]);
-		imprimirResultado(&registros[60+i], X, Y, size); Y++;
-		*/
-
-		copiarValoresVetor(v, vCopia, tamanho); //OPC 7 SHAKER
-		registros[70+i].Name = "Shaker";
-		registros[70+i].size = tamanho;
-		shakesort(vCopia, tamanho, &registros[70+i]);
-		imprimirResultado(&registros[70+i], X, Y, size); Y++;
+		if(opc == 7 || opc == 0){
+			copiarValoresVetor(v, vCopia, tamanho); //OPC 7 SHAKER
+			registros[70+i].Name = "Shaker";
+			registros[70+i].size = tamanho;
+			shakesort(vCopia, tamanho, &registros[70+i]);
+			imprimirResultado(&registros[70+i], X, Y, size); Y++;
+		}
 		
 		free(v);
 		free(vCopia);
