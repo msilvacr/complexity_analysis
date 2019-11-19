@@ -1,22 +1,37 @@
 #include "h_sortingAlgorithms.h"
 
-/////shakersort
-//Utilizado em ShakeSort method
-void swap(int *a, int *b){
-    int temp;
-    temp = *a;
-    *a = *b;
-    *b = temp;
+
+void shakesort(unsigned long int *v, unsigned long int tam, struct Registro *registro){
+
+	int j,k,l,r, aux;
+
+	l=1;
+
+	r= k=tam-1;
+	
+	do {
+		for (j=r; j>=l; j--){
+			if (v[j-1]>v[j]) {
+				aux=v[j-1];
+				v[j-1] = v[j];
+				v[j] = aux;
+				k=j;
+			}
+		}
+		
+		l= k+1;
+
+		for (j=l; j<=r; j++){
+			if (v[j-1]>v[j]){
+				aux=v[j-1];
+				v[j-1] = v[j];
+				v[j] = aux;
+				k=j;
+			}
+		}
+
+		r=k-1;
+		
+	} while (l<=r);
 }
 
-void shakersort(int* a, int n){
-    int p, i;
-    for (p = 1; p <= n / 2; p++){
-        for (i = p - 1; i < n - p; i++)
-            if (a[i] > a[i+1])
-                swap(&a[i], &a[i + 1]);
-        for (i = n - p - 1; i >= p; i--)
-            if (a[i] < a[i-1])
-                swap(&a[i], &a[i - 1]);
-    }
-}

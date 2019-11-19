@@ -1,60 +1,73 @@
 #include "h_sortingAlgorithms.h"
+#include "h_functionalities.h"
 
-/*
-  MERGE SORT
-*/
+void intercala(unsigned long int e, unsigned long int meio, unsigned long int d, unsigned long int *v, struct Registro *registro){
+	
+	bool auxWhile;
+	
+	int i, j, k, *w;
+	
+	w =(int *) malloc((d-e)*sizeof(int));
+	
+	i=e; j=meio; k=0;
+	
+	registro->comparisons++; auxWhile = false; //COMPARAÇÃO DO WHILE
+	
+	while (i<meio && j<d){ registro->complexity++; //COMPLEXIDADE
+	
+		if(auxWhile){  registro->comparisons++; }  auxWhile = true;  //COMPARAÇÃO DO WHILE
 
-/*
-  Dado um vetor v e três inteiros i, m e f, sendo v[i..m] e v[m+1..f] vetores ordenados,
-  coloca os elementos destes vetores, em ordem crescente, no vetor em v[i..f].
-*/
-void merge(int *v, int *c, int i, int m, int f) {
-  int z,
-      iv = i, ic = m + 1;
+		registro->comparisons++; //COMPARAÇÃO
+		if (v[i] < v[j]){ 
+			w[k++]  = v[i++];   registro->arrayAccesses++; //ACESSO AO ARRAY
+		}
+		else{
+			w[k++] = v[j++];    registro->arrayAccesses++; //ACESSO AO ARRAY
+		}
+	}
+	
+	registro->comparisons++; auxWhile = false; //COMPARAÇÃO DO WHILE
 
-  for (z = i; z <= f; z++) c[z] = v[z];
+	while (i<meio){  registro->complexity++; //COMPLEXIDADE
 
-  z = i;
+		if(auxWhile){  registro->comparisons++; }  auxWhile = true;  //COMPARAÇÃO DO WHILE
 
-  while (iv <= m && ic <= f) {
-    /* Invariante: v[i..z] possui os valores de v[iv..m] e v[ic..f] em ordem crescente. */
+		w[k++]=v[i++];  registro->arrayAccesses++; //ACESSO AO ARRAY
+		
+	}
+	
+	registro->comparisons++; auxWhile = false; //COMPARAÇÃO DO WHILE
+	
+	while (j<d){  registro->complexity++; //COMPLEXIDADE
 
-    if (c[iv] < c[ic]) v[z++] = c[iv++];
-    else /* if (c[iv] > c[ic]) */ v[z++] = c[ic++];
-  }
+		if(auxWhile){  registro->comparisons++; }  auxWhile = true;  //COMPARAÇÃO DO WHILE
 
-  while (iv <= m) v[z++] = c[iv++];
-
-  while (ic <= f) v[z++] = c[ic++];
+		w[k++]=v[j++];  	registro->arrayAccesses++; //ACESSO AO ARRAY
+		
+	}
+	
+	
+	for (i=e; i<d; ++i){  registro->complexity++; //COMPLEXIDADE
+	
+		v[i]=w[i-e];  registro->arrayAccesses++; //ACESSO AO ARRAY
+		
+	}
+	
+	
+	free(w);
 }
 
-/*
-  Dado um vetor de inteiros v e dois inteiros i e f, ordena o vetor v[i..f] em ordem crescente.
-  O vetor c é utilizado internamente durante a ordenação.
-*/
-void sort(int *v, int *c, int i, int f) {
-  if (i >= f) return;
-
-  int m = (i + f) / 2;
-
-  sort(v, c, i, m);
-  sort(v, c, m + 1, f);
-
-  /* Se v[m] <= v[m + 1], então v[i..f] já está ordenado. */
-  if (v[m] <= v[m + 1]) return;
-
-  merge(v, c, i, m, f);
+//void mergesort(int e,int d, int v[])
+void mergesort(unsigned long int e, unsigned long int d, unsigned long int *v, struct Registro *registro){
+	int meio;
+	
+	registro->comparisons++; //COMPARAÇÃO
+	
+	if (e<d-1){ 
+		meio= (e+d)/2;
+		mergesort(e, meio, v, registro);
+		mergesort(meio,d,v, registro);
+		intercala(e, meio, d,v, registro);
+	}
 }
-/*
- Dado um vetor de inteiros v e um inteiro n >= 0, ordena o vetor v[0..n-1] em ordem crescente.
-*/
-void mergesort(int *v, int n) {
-  int *c = (int *) malloc(sizeof(int) * n);
-  sort(v, c, 0, n - 1);
-  free(c);
-}
-
-
-
-
 

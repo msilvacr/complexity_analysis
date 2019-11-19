@@ -21,6 +21,10 @@ void bolha(unsigned long int *v, unsigned long int tam, struct Registro *registr
 			}
 		}
 	 	j--;
+	 	
+	 	registro->comparisons++; //COMPARAÇÃO DO WHILE
 	}while(troca);
+	
+	registro->comparisons -= 1; //REMOVENDO UMA COMPARAÇÃO ADICIONADA INDEVIDAMENTE (PELO FATO DE QUE DO WHILE NÃO COMPARA NA PRIMERIA EXECUÇÃO)
 }
 

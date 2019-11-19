@@ -62,30 +62,33 @@ void executarTodos(){
 		registros[30+i].size = tamanho;
 		ins_direta(v, tamanho, &registros[30+i]);
 		imprimirResultado(&registros[30+i], X, Y, size); Y++;
-		*/
+
 
 		copiarValoresVetor(v, vCopia, tamanho); //OPC 4 HEAP
 		registros[40+i].Name = "Heap";
 		registros[40+i].size = tamanho;
-        heapsort(v, tamanho, &registros[30+i]);
-		imprimirResultado(&registros[40+i], X, Y, size);
-		
-		
-		/*
+        heapsort(v, tamanho, &registros[40+i]);
+		imprimirResultado(&registros[40+i], X, Y, size); Y++;
+
+
 		copiarValoresVetor(v, vCopia,tamanho); //OPC 5 MERGE
-		registros[50+i].Name = "Bubble";
+		registros[50+i].Name = "Merge";
 		registros[50+i].size = tamanho;
-		imprimirResultado(&registros[50+i], X, Y, size);
+		mergesort(0, tamanho-1, v, &registros[50+i]);
+		imprimirResultado(&registros[50+i], X, Y, size); Y++;
+		*/
 
 		copiarValoresVetor(v, vCopia, tamanho); //OPC 6 QUICK
-		registros[60+i].Name = "Bubble";
+		registros[60+i].Name = "Shaker";
 		registros[60+i].size = tamanho;
-		imprimirResultado(&registros[60+i], X, Y, size);
+		shakesort(v, tamanho, registro[60+i]);
+		imprimirResultado(&registros[60+i], X, Y, size); Y++;
 		
+		/*
 		copiarValoresVetor(v, vCopia, tamanho); //OPC 7 SHAKER
 		registros[70+i].Name = "Bubble";
 		registros[70+i].size = tamanho;
-		imprimirResultado(&registros[70+i], X, Y, size);
+		imprimirResultado(&registros[70+i], X, Y, size); Y++;
 		
 		free(v);
 		free(vCopia);
