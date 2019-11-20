@@ -25,18 +25,19 @@
 struct Registro registros[90], execucaoIsolada;
 
 //funções primordiáis
-void executarTodos(){
+void executarTodos(int maxVetor){
 	int tamanho;
 	long int i;
 	int X=2, Y = 2;
 	int size = 116;
+	maxVetor = 10; //APAGAR ESSA LINHA DPS
 	
-	int opc = 6;
+	int opc = 1;
 	
 	imprimirTituloResultado("Metricas de complexidade", X, Y, size); Y+=2; //pulando duas linhas
 	imprimirCabecalho(X, Y, size); Y+=2;
 	
-	for(i = 1; i < 10; i++){
+	for(i = 1; i < maxVetor; i++){
 		unsigned long long int tamanho = pow(10, i);
 		unsigned long int *v = gerarVetor(tamanho); //vetor BASE após preenchimento e embaralhação
 		unsigned long int *vCopia = gerarVetor(tamanho); //cópia do vetor
@@ -106,7 +107,10 @@ void executarTodos(){
 		free(v);
 		free(vCopia);
 	}
+	gotoxy(X, ++Y);
 	
+	printf("\nOrdenacoes concluidas. Pressione uma tecla para continuar...");
+	getch();
 	salvarRegistros(&registros[0]);
 }
 
@@ -117,7 +121,7 @@ void executarAlgoritmo(int algoritmo){
 
 int main(){
 
-	executarTodos();
+	executarTodos(10); ////////////////////////////////////////////////////////////////////////////////////
 	getch();
 	getch();
 
@@ -130,7 +134,7 @@ int main(){
 		limparTela();
 		switch(escolha){
 			case 1:{ //iniciar analise de complexidade para todos algoritmos
-				executarTodos();
+				executarTodos(10); ////////////////////////////////////////////////////////////////////////////
 				break;
 			}
 			case 2:{ //menu de algoritmos
@@ -167,59 +171,5 @@ int main(){
 	}while(escolha != -1);
 	
 	finalizarAplicacao();
-
-
-	/*telaInicial();
-	int opc;
-
-	if(opc == 1){
-		executarTodos();
-	}
-	else if(opc ==2){
-
-
-		opc = menuAlgoritmos();
-		
-		switch(opc):
-			case 1:
-				
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	/*
-	char *str;
-	//str = "deu ruim";
-	
-	//printf("%s", str);
-	int i;
-	//printf("Digita um numero ae\n");
-	//scanf("%d", &i);
-
-	int *v;
-	v = gerarVetor(i);
-	
-	preencherVetor(v, i);
-
-	embaralharVetor(v, i);
-	
-	apresentarVetor(v, i);
-	
-	heapsort(v, i);
-	
-	getch();
-	
-	limparTela();
-	
-	apresentarVetor(v, i);
-
-	getch();
-	*/
 }
 

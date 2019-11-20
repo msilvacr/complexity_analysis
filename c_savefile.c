@@ -3,18 +3,18 @@
 using namespace std;
 
 void salvarRegistros(struct Registro *registros){
-	
+	limparTela();
 	int i, j, linhas = 90, colunas = 5;
 	
 	char str[100];
 	
 	char *filename = str;
 	
-    printf("\n Enter the filename :");
+    printf("\n Digite o nome do arquivo para salvamento dos dados :");
 
 	gets(filename);
 	
-	printf("\n Creating %s.csv file",filename);
+	printf("\n Gerando %s.csv file",filename);
 
 	FILE *fp;
 
@@ -26,14 +26,10 @@ void salvarRegistros(struct Registro *registros){
 	
 	
 	for(i=0; i<linhas; i++){
+		struct Registro r = registros[i];
 		
-		
-	    //fprintf(fp,"\n%d",i+1); inserir index nas linhas
-		printf(" i = %ld    aux = %s   size =  %ld    complex = %llu   compar = %llu    arrayA = %llu\n", i, registros[i].Name, registros[i].size, registros[i].complexity, registros[i].comparisons, registros[i].arrayAccesses);
-		
-		if(registros[linhas].size != NULL){
-			
-			printf("%s", registros[i].Name);
+		if(r.size != 0){
+			//printf(" i = %ld    aux = %s   size =  %ld    complex = %llu   compar = %llu    arrayA = %llu\n", i, r.Name, r.size, r.complexity, r.comparisons, r.arrayAccesses);
 			fprintf(fp,"\n%s |%llu |%llu |%llu |%llu ", registros[i].Name, registros[i].size, registros[i].complexity, registros[i].comparisons, registros[i].arrayAccesses);
 			
 		}
@@ -41,7 +37,7 @@ void salvarRegistros(struct Registro *registros){
    
 	fclose(fp);
 
-	printf("\n %sfile created",filename);
+	printf("\n %s alvo com sucesso.",filename);
 	
 }
 

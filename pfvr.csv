@@ -1,0 +1,4 @@
+Algorítmo| Tamanho Vetor| Complexidade| Comparações| Modificações do Vetor
+Quick |10 |43 |56 |38 
+Quick |100 |929 |1066 |534 
+Quick |1000 |14209 |15524 |6741 
