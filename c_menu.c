@@ -362,7 +362,7 @@ int confirmacaoSair(){
 	imprimirOpcao((char*)"Nao", x, y++); //OPC 2
 	imprimirRodape(x, y);
 
-	int aux = ponteiroMenu(1);
+	int aux = ponteiroMenu(2);
 	if(aux == -1){
 		aux = 2;
 	}

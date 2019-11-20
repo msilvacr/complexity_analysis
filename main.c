@@ -25,19 +25,16 @@
 struct Registro registros[90], execucaoIsolada;
 
 //funções primordiáis
-void executarTodos(int maxVetor){
+void executar(int opc){
 	int tamanho;
 	long int i;
 	int X=2, Y = 2;
 	int size = 116;
-	maxVetor = 10; //APAGAR ESSA LINHA DPS
-	
-	int opc = 1;
 	
 	imprimirTituloResultado("Metricas de complexidade", X, Y, size); Y+=2; //pulando duas linhas
 	imprimirCabecalho(X, Y, size); Y+=2;
 	
-	for(i = 1; i < maxVetor; i++){
+	for(i = 1; i < 10; i++){
 		unsigned long long int tamanho = pow(10, i);
 		unsigned long int *v = gerarVetor(tamanho); //vetor BASE após preenchimento e embaralhação
 		unsigned long int *vCopia = gerarVetor(tamanho); //cópia do vetor
@@ -114,62 +111,90 @@ void executarTodos(int maxVetor){
 	salvarRegistros(&registros[0]);
 }
 
-void executarAlgoritmo(int algoritmo){
-	
-}
-
 
 int main(){
-
-	executarTodos(10); ////////////////////////////////////////////////////////////////////////////////////
+	/*
+	executar(0); ////////////////////////////////////////////////////////////////////////////////////
 	getch();
 	getch();
-
+	*/
 	int escolha;
 	telaInicial();
 	limparTela();
 	
+	inicio:
 	do{
 		escolha = menuPrincipal();
 		limparTela();
 		switch(escolha){
 			case 1:{ //iniciar analise de complexidade para todos algoritmos
-				executarTodos(10); ////////////////////////////////////////////////////////////////////////////
+				executar(0); ////////////////////////////////////////////////////////////////////////////
 				break;
 			}
 			case 2:{ //menu de algoritmos
-				escolha = menuAlgoritmos();
-				limparTela();
-				switch(escolha){
-					case -1: { //voltar
-					
-						break;
+				while(true){
+					escolha = menuAlgoritmos();
+					limparTela();
+					switch(escolha){
+						case 1: {
+							executar(1);
+							break;
+						}
+						case 2: {
+							executar(2);
+							break;
+						}
+						case 3: {
+							executar(3);
+							break;
+						}
+						case 4: {
+							executar(4);
+							break;
+						}
+						case 5: {
+							executar(5);
+							break;
+						}
+						case 6: {
+							executar(6);
+							break;
+						}
+						case 7: {
+							executar(7);
+							break;
+						}
+						case -1: { //voltar
+							goto inicio;
+						}
+						default: { //selecionou um algorítmo
+							break;
+						}
 					}
-					default: { //selecionou um algorítmo
-						executarAlgoritmo(escolha);
-						break;
-					}
+					break;
 				}
-				break;
 			}
+			
 			case -1:{ // sair
 				/////confirmar finalização do programa;
 				int aux = confirmacaoSair();
+				//limparTela();
+				//printf("%d", aux);
+				//getch();
 				limparTela();
-				if(aux == 2){
-					escolha = -1;
+				if(aux == 1){
+					goto fim;
 				}
-				else{
+				else {
 					escolha = 0;
+					break;
 				}
-				/////
-				break;
 			}
-			default:
-				break;
 		}
 	}while(escolha != -1);
 	
-	finalizarAplicacao();
+	fim: finalizarAplicacao();
+
+	return (0);
 }
 
