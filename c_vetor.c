@@ -5,12 +5,13 @@
 void embaralharVetor(unsigned long int *v, unsigned long int tamanho){
 	int i, x, aux;
 
-	for(i=0; i < tamanho; i++){
+	for(i=0; i < tamanho-1; i++){
 		x = 1 + ( rand() % (tamanho-1));
 		aux = v[i];
 		v[i] = v[x];
 		v[x] = aux;
 	}
+	v[tamanho-1] = tamanho/2;
 }
 
 //função responsável por preencher o vetor de forma crescente
@@ -28,7 +29,7 @@ unsigned long int *gerarVetor(unsigned long int tamanho){
 }
 
 //função responsável por percorrer o vetor e apresentar seus valores
-void apresentarVetor(unsigned long int *v, int tamanho){
+void apresentarVetor(unsigned long int *v, unsigned long int tamanho){
 	int i;
 	for(i=0; i<tamanho; i++){
 		printf("indice %d -> %d\n", i, v[i]);

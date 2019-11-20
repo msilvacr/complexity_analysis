@@ -37,8 +37,7 @@ void executarTodos(){
 	imprimirCabecalho(X, Y, size); Y+=2;
 	
 	for(i = 1; i < 10; i++){
-		//unsigned long long int tamanho = pow(10, i);
-		unsigned long long int tamanho = 10*i;
+		unsigned long long int tamanho = pow(10, i);
 		unsigned long int *v = gerarVetor(tamanho); //vetor BASE após preenchimento e embaralhação
 		unsigned long int *vCopia = gerarVetor(tamanho); //cópia do vetor
 		preencherVetor(v, tamanho); //preenchendo vetor de base
@@ -91,7 +90,8 @@ void executarTodos(){
 			copiarValoresVetor(v, vCopia, tamanho); //OPC 6 QUICK
 			registros[60+i].Name = "Quick";
 			registros[60+i].size = tamanho;
-			quicksort(vCopia, 0, tamanho, &registros[60+i]);
+			long int tAux = (long int) tamanho-1;
+			quicksort(vCopia, 0, tAux, &registros[60+i]);
 			imprimirResultado(&registros[60+i], X, Y, size); Y++;
 		}
 
@@ -116,11 +116,11 @@ void executarAlgoritmo(int algoritmo){
 
 
 int main(){
-	
+
 	executarTodos();
 	getch();
 	getch();
-	
+
 	int escolha;
 	telaInicial();
 	limparTela();
