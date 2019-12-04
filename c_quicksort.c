@@ -10,7 +10,7 @@ int particao (unsigned long int *v, long int e, long int d, struct Registro *reg
 	i = e -1;
 	j = d;
 
-	do {registro->complexity++; //COMPLEXIDADE
+	do {
 
 		do{registro->complexity++; //COMPLEXIDADE
 

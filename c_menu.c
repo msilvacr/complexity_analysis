@@ -320,6 +320,7 @@ void imprimirResultado(struct Registro *registro, int X, int Y, int size){
 
 
 int telaInicial(){
+	limparTela();
 	int x = XX, y = YY, escolha;
 	imprimirTitulo((char*)"Complexity Analysis", x, y);
 	y+=2; //PULANDO A LINHA DE TÍTULO E DE ESPAÇO

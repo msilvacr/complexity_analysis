@@ -36,7 +36,7 @@ void ins_direta(unsigned long int *v, unsigned long int tam, struct Registro *re
    if(cont1 == 0) { cont1 =1 ; }
    if(cont2 == 0) { cont2 =1 ; }
    
-   registro->complexity = (unsigned long long int)cont1 * cont2;
+   registro->complexity = (unsigned long long int)cont1 + cont2;
    
 }
 

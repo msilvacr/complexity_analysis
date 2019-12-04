@@ -4,9 +4,10 @@ using namespace std;
 
 void salvarRegistros(struct Registro *registros){
 	limparTela();
-	int i, j, linhas = 90, colunas = 5;
+	int i, j, linhas = 2000, colunas = 5;
 	
 	char str[100];
+	
 	
 	char *filename = str;
 	
@@ -24,8 +25,8 @@ void salvarRegistros(struct Registro *registros){
 
 	fprintf(fp,"Algorítmo| Tamanho Vetor| Complexidade| Comparações| Modificações do Vetor");
 	
-	
 	for(i=0; i<linhas; i++){
+		
 		struct Registro r = registros[i];
 		
 		if(r.size != 0){
@@ -34,9 +35,7 @@ void salvarRegistros(struct Registro *registros){
 			
 		}
    }
-   
 	fclose(fp);
-
 	printf("\n %s alvo com sucesso.",filename);
 	
 }

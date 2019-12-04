@@ -24,6 +24,73 @@
 //variáveis de escopo global;
 struct Registro registros[90], execucaoIsolada;
 
+
+void gerarAmostragem(){
+	int tamanho;
+	long int i;
+	int X=2, Y = 2;
+	int size = 116;
+	
+	imprimirTituloResultado("Metricas de complexidade", X, Y, size); Y+=2; //pulando duas linhas
+	imprimirCabecalho(X, Y, size); Y+=2;
+	
+	long int tamanhoAmostragem = 2000;
+	
+	struct Registro registros[tamanhoAmostragem];
+	int opc = 	7;
+	
+	for(i = 1; i < tamanhoAmostragem; i++){
+		
+		unsigned long long int tamanho = 10 * i;
+		unsigned long int *v = gerarVetor(tamanho); //vetor BASE após preenchimento e embaralhação
+		unsigned long int *vCopia = gerarVetor(tamanho); //cópia do vetor
+		preencherVetor(v, tamanho); //preenchendo vetor de base
+		embaralharVetor(v, tamanho); //embaralhando valores
+
+		//INICIANDO MÉTODOS DE ORDENAÇÃO >
+		if(opc == 1 || opc == 0){
+			copiarValoresVetor(v, vCopia, tamanho); //OPC 1 BUBBLE
+			registros[i].Name = "Bubble";
+			registros[i].size = tamanho;//definindo tamanho do vetor no registro
+			bolha(vCopia, tamanho, &registros[i]); //chamando método de ordenação
+			imprimirResultado(&registros[i], X, Y, size); Y++;
+		}
+
+		if(opc == 2 || opc == 0){
+			copiarValoresVetor(v, vCopia, tamanho); //OPC 2 SELECTION
+			registros[i].Name = "Selection";
+			registros[i].size = tamanho;
+			selecao(vCopia, tamanho, &registros[i]);
+			imprimirResultado(&registros[i], X, Y, size); Y++;
+		}
+
+		if(opc == 3 || opc == 0){
+			copiarValoresVetor(v, vCopia, tamanho); //OPC 3 INSERTION
+			registros[i].Name = "Insertion";
+			registros[i].size = tamanho;
+			ins_direta(vCopia, tamanho, &registros[i]);
+			imprimirResultado(&registros[i], X, Y, size); Y++;
+		}
+
+		if(opc == 7 || opc == 0){
+			copiarValoresVetor(v, vCopia, tamanho); //OPC 7 SHAKER
+			registros[i].Name = "Shaker";
+			registros[i].size = tamanho;
+			shakesort(vCopia, tamanho, &registros[i]);
+			imprimirResultado(&registros[i], X, Y, size); Y++;
+		}
+
+		free(v);
+		free(vCopia);
+	}
+
+	gotoxy(X, ++Y);
+	printf("\nOrdenacoes concluidas. Pressione uma tecla para continuar...");
+	getch();
+	salvarRegistros(&registros[0]);
+}
+
+
 //funções primordiáis
 void executar(int opc){
 	int tamanho;
@@ -104,6 +171,7 @@ void executar(int opc){
 		free(v);
 		free(vCopia);
 	}
+	
 	gotoxy(X, ++Y);
 	
 	printf("\nOrdenacoes concluidas. Pressione uma tecla para continuar...");
@@ -113,11 +181,9 @@ void executar(int opc){
 
 
 int main(){
-	/*
-	executar(0); ////////////////////////////////////////////////////////////////////////////////////
-	getch();
-	getch();
-	*/
+	//gerarAmostragem();
+	
+	
 	int escolha;
 	telaInicial();
 	limparTela();
